@@ -33,8 +33,8 @@ public class GameController : MonoBehaviour {
     private GameObject commandLineUI;
 
 	public GameObject winningText;
-	public string playerOneText = "Player 2 Wins!";
-	public string playerTwoText = "Player 1 Wins!";
+	public string playerOneText = "Red Wins!";
+	public string playerTwoText = "Yellow Wins!";
 	public string drawText = "Draw!";
 
 	public GameObject btnPlayAgain;
@@ -60,8 +60,11 @@ public class GameController : MonoBehaviour {
  
 
 	bool playerOneTurn = true;
+
     [SerializeField]
-    bool computerPlayer = false;
+    public bool computerPlayer = false;
+
+
 	bool isLoading = true;
 	bool isDropping = false; 
 	bool mouseButtonPressed = false;
@@ -390,7 +393,14 @@ public class GameController : MonoBehaviour {
 
 			// if Game Over update the winning text to show who has won
 			if(gameOver == true){
-				winningText.GetComponent<TextMesh>().text = playerOneTurn ? playerOneText : playerTwoText;
+                print(playerOneTurn);
+                if (playerOneTurn) {
+                    winningText.GetComponent<TextMesh>().text = playerOneText;
+
+                }else {
+                    winningText.GetComponent<TextMesh>().text = playerTwoText;
+                }
+				
 			}
 			else {
 				// check if there are any empty cells left, if not set game over and update text to show a draw
