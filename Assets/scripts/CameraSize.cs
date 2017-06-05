@@ -14,7 +14,7 @@ namespace ConnectFour
 		
 		void LateUpdate()
 		{
-			float maxY = (GameObject.Find ("GameController").GetComponent<GameController>().numRows) + 2;
+			float maxY = (GameController.numRows) + 2;
 
 			cam.orthographicSize = maxY / 2f;
 		}

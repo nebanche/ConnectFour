@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour {
 
+    static public GameController S;
 	enum Piece{
 		Empty = 0,
 		Blue = 1,
@@ -12,9 +13,9 @@ public class GameController : MonoBehaviour {
 
     // Game Variables
 
-    public int numRows = 6;
+    static public int numRows = 6;
 
-	public int numColumns = 7;
+	static public int numColumns = 7;
 
 	public int numPiecesToWin = 4;
 		
@@ -52,13 +53,21 @@ public class GameController : MonoBehaviour {
 	/// 1 = Blue
 	/// 2 = Red
 	/// </summary>
+    /// 
+    //Duplicated only for asethetics
 	int[,] board;
+    int[] height; 
+ 
 
 	bool playerOneTurn = true;
+    [SerializeField]
     bool computerPlayer = false;
 	bool isLoading = true;
 	bool isDropping = false; 
 	bool mouseButtonPressed = false;
+
+    [SerializeField]
+    GameObject simpleAI;
 
    static public bool commandLine = false;
 
@@ -67,6 +76,9 @@ public class GameController : MonoBehaviour {
 
 	// Start runs on program intialization, spawns board. 
 	void Start () {
+
+        S = this;
+
 		int max = Mathf.Max (numRows, numColumns);
 
 		if(numPiecesToWin > max)
@@ -74,7 +86,7 @@ public class GameController : MonoBehaviour {
 
 		CreateBoard ();
 
-		playerOneTurn = System.Convert.ToBoolean(Random.Range (0, 1));
+        playerOneTurn = true;
 
 		btnPlayAgainOrigColor = btnPlayAgain.GetComponent<Renderer>().material.color;
 	}
@@ -95,7 +107,9 @@ public class GameController : MonoBehaviour {
 
 		// create an empty board and instantiate the cells
 		board = new int[numColumns, numRows];
+        height = new int[numColumns];
 		for(int x = 0; x < numColumns; x++){
+            height[x] = 6;
 			for(int y = 0; y < numRows; y++){
 				board[x, y] = (int)Piece.Empty;
 				GameObject g = Instantiate(pieceField, new Vector3(
@@ -124,7 +138,11 @@ public class GameController : MonoBehaviour {
 		Vector3 spawnPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 					
 		if(!playerOneTurn && computerPlayer){
-			//computer spawn code will go here 
+            //computer thinking code goes here 
+            if (simpleAI) {
+                int move = simpleAI.GetComponent<SimpleAI>().CalcuateMove();
+                spawnPos = new Vector3(move, 0, 0);
+            }
 		}
 
 		GameObject g = Instantiate(
@@ -163,6 +181,8 @@ public class GameController : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+
+     
 		if(isLoading)
 			return;
 
@@ -178,9 +198,9 @@ public class GameController : MonoBehaviour {
 			return;
 		}
 
-		if(!computerPlayer){
+		if(playerOneTurn || !computerPlayer){
             //commandLineUI.SetActive(false);
-
+          
             if (gameObjectTurn == null){
 				gameObjectTurn = SpawnPiece();
 			}
@@ -202,26 +222,40 @@ public class GameController : MonoBehaviour {
 				}
 			}
 		}
-        //command line is on
+        //computer player is on 
 		else{
-
             //ensure peice is still above game board
 			if(gameObjectTurn == null){
 				gameObjectTurn = SpawnPiece();
 			}
 			else{
-				///computer player action  function, returns a piece with positions
-                
-			}
-		}
+                if (!isDropping) {
+                    StartCoroutine(dropPiece(gameObjectTurn));
+                }
+
+            }
+        }
 	}
 
-		
-	/// This method  is a cocourtine and searches for a empty cell and lets 
-	/// the object fall down into this cell
-    /// prevents the player from dropping into a full column
-		
-	IEnumerator dropPiece(GameObject gObject){
+    
+    //checks if a peice is dropable in this row
+   public bool canDrop(int col) {
+
+        for (int i = numRows - 1; i >= 0; i--) {
+            if (board[col, i] == 0) {
+                return true;
+            }
+        }
+
+        return false;
+
+    }
+
+
+    /// This method  is a cocourtine and searches for a empty cell and lets 
+    /// the object fall down into this cell
+    /// prevents the player from dropping into the middle colmn
+    IEnumerator dropPiece(GameObject gObject){
 		isDropping = true;
 
 		Vector3 startPosition = gObject.transform.position;
@@ -233,15 +267,16 @@ public class GameController : MonoBehaviour {
 
 		// is there a free cell in the selected column?
 		bool foundFreeCell = false;
-		for(int i = numRows-1; i >= 0; i--){
-			if(board[x, i] == 0){
-				foundFreeCell = true;
-				board[x, i] = playerOneTurn ? (int)Piece.Blue : (int)Piece.Red;
-				endPosition = new Vector3(x, i * -1, startPosition.z);
-
-				break;
-			}
-		}
+        for (int i = numRows - 1; i >= 0; i--) {
+            if (board[x, i] == 0) {
+                foundFreeCell = true;
+                board[x, i] = playerOneTurn ? (int)Piece.Blue : (int)Piece.Red;
+                height[x] = i;
+                //print(height[x]);
+                endPosition = new Vector3(x, i * -1, startPosition.z);
+                break;
+            }
+        }
 
 		if(foundFreeCell){
 			// Instantiate a new Piece, disable the temporary floating piece
@@ -370,16 +405,113 @@ public class GameController : MonoBehaviour {
 			yield return 0;
 		}
 
+    //checks if the current player's move would win the game
+    public bool isWinningMove(int col, int current_player) {
+
+        print("height of col " + col + ":" + height[col]);
+        bool winner = false;      
+        ///if fucntion is used improperly on a row we cannot use. 
+        if(height[col] - 1 < 0) {
+            return false;
+        }
+
+        // "place" the predicted peice
+        board[col, height[col] - 1] = current_player;
+
+        int count = 0; 
+
+        //checks vertical
+        for (int i = 0; i < numRows; i++) {
+            if (board[col, i] == current_player)
+                count++;
+            else
+                count = 0;
+
+            if (count >= 4) {
+                print("vertical");
+                winner = true;
+            }
+                
+        }
+
+       count = 0 ;
+        ///checks for horizontal win
+        for (int i = 0; i < numColumns; i++) {
+            if (board[i, height[col] - 1 ] == current_player) {
+               print(board[i, height[col] - 1]);
+                count++;
+            }       
+            else
+                count = 0;
+
+            if (count >= 4) {
+                print("horizonal");
+                winner = true;
+            }
+                
+        }
+
+        // ascending diagonalCheck 
+        for (int i = 3; i < numColumns; i++) {
+            for (int j = 0; j < numRows - 3; j++) {
+                if (board[i, j] == current_player &&
+                    board[i - 1, j + 1] == current_player &&
+                    board[i - 2, j + 2] == current_player &&
+                    board[i - 3, j + 3] == current_player) {
+                    winner = true;
+                    break;
+                }
+            }
+        }
+
+
+        // descending diagonalCheck
+        for (int i = 3; i < numColumns; i++) {
+            for (int j = 3; j < numRows; j++) {
+                if (board[i, j] == current_player &&
+                    board[i - 1, j - 1] == current_player &&
+                    board[i - 2, j - 2] == current_player &&
+                    board[i - 3, j - 3] == current_player) {
+                    winner = true;
+                    break;
+                }
+            }
+        } 
+
+        //removes the  predicted piece
+        board[col, height[col] - 1] = (int)Piece.Empty;
+
+        if (winner) 
+            return true;
+        else
+            return false;
+    }
+
 		
-		///Check if the board field contains an empty cell 
-		///True if it contains empty cell, false otherwise.
-		bool BoardContainsEmptyCell(){
-			for(int x = 0; x < numColumns; x++){
-				for(int y = 0; y < numRows; y++){
-					if(board[x, y] == (int)Piece.Empty)
-						return true;
-				}
+	///Check if the board field contains an empty cell 
+	///True if it contains empty cell, false otherwise.
+	bool BoardContainsEmptyCell(){
+		for(int x = 0; x < numColumns; x++){
+			for(int y = 0; y < numRows; y++){
+				if(board[x, y] == (int)Piece.Empty)
+					return true;
 			}
-			return false;
 		}
+		return false;
 	}
+
+
+    public void DebugBoard() {
+        string boardString = "";
+        print("DEBUG");
+        for (int x = 0; x < GameController.numColumns; x++) {
+            boardString = boardString + "Col" + x + ":";
+            for (int y = 0; y < GameController.numRows; y++) {
+                boardString = boardString + board[x, y];
+            }
+        }
+
+        print(boardString);
+    }
+
+}
