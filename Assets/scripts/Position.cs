@@ -4,20 +4,30 @@ using UnityEngine;
 
 namespace C4_AI {
     //Position is a represention  and interface of the board state for an advanced AI. Structure from Russel/Norvig Textbook
-    public class Position : MonoBehaviour {
+    public class Position {
 
-        int[,] board;
-        int[] height;
+        public int[,] board;
+        public int[] height;
 
         //count of move to determine what player is playing. 
         int moves; 
 
         public Position(Position boardState) {
-            board = boardState.ReadBoard();
+
+            Debug.Log("we are making a copy of a position");
+            board = new int[GameController.numColumns, GameController.numRows];
+            height = new int[GameController.numColumns];
+            for (int x = 0; x < GameController.numColumns; x++) {
+                height[x] = boardState.height[x];
+                for (int y = 0; y < GameController.numRows; y++) {
+                    board[x, y] = boardState.board[x,y];
+                }
+            }
         }
 
         public Position(int[,] gameBoard) {
 
+            Debug.Log("WE ARE USING THIS WEIRD CTOR");
             InitalizeBoard();
 
             board = gameBoard;
@@ -31,6 +41,8 @@ namespace C4_AI {
         }
 
         void InitalizeBoard() {
+
+            Debug.Log("we have hit initalization");
             board = new int[GameController.numColumns, GameController.numRows];
             height = new int[GameController.numColumns];
             for (int x = 0; x < GameController.numColumns; x++) {
@@ -39,7 +51,7 @@ namespace C4_AI {
                     board[x, y] = 0;
                 }
             }
-
+            DebugBoard();
         }
 
         //Simuates a play of a peice on col on the structure for board representation. Does not play the peice to the front end 
@@ -86,7 +98,7 @@ namespace C4_AI {
                     break;
                 }
             }
-            print(endPosition);
+            //print(endPosition);
             return endPosition;
         }
 
@@ -94,7 +106,7 @@ namespace C4_AI {
         //checks if the opponent can win in the next move in the current boardState  
         public bool isWInningMove(int col, int current_player) {
 
-            print("height of col " + col + ":" + height[col]);
+           // print("height of col " + col + ":" + height[col]);
             bool winner = false;
             ///if fucntion is used improperly on a row we cannot use. 
             if (height[col] - 1 < 0) {
@@ -131,8 +143,8 @@ namespace C4_AI {
                         count = 0;
 
                     if (count >= 4) {
-                        print("Winner in col: " + x);
-                        print("vertical");
+                       // print("Winner in col: " + x);
+                        //print("vertical");
                         winner = true;
                     }
 
@@ -149,15 +161,15 @@ namespace C4_AI {
                         count = 0;
                     }
                     if (count >= 4) {
-                        print(count);
-                        print("horizonal");
+                        //print(count);
+                       // print("horizonal");
                         winner = true;
                     }
 
                 }
             }
 
-            print("horizontal count" + count);
+            //print("horizontal count" + count);
 
             // ascending diagonalCheck 
             for (int i = 3; i < GameController.numColumns; i++) {
@@ -204,21 +216,27 @@ namespace C4_AI {
 
         public void DebugBoard() {
             string boardString = "";
-            print("DEBUG");
+            //print("DEBUG");
             for (int x = 0; x < GameController.numColumns; x++) {
                 boardString = boardString + "Col" + x + ":";
                 for (int y = 0; y < GameController.numRows; y++) {
                     boardString = boardString + board[x, y];
                 }
             }
-
-            print(boardString);
+            Debug.Log(boardString);
+            //print(boardString);
         }
 
 
         public int GetMoves() {
             return moves;
         }
+
+        public int [] ReadHeight() {
+            return height;
+        }
+
+        
     } //postition
 
     //bummer, no tuple in C#

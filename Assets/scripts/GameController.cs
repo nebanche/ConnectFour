@@ -63,8 +63,14 @@ public class GameController : MonoBehaviour {
     [SerializeField]
     public bool computerPlayer = false;
 
+    public bool simpleOn = true;
+
     [SerializeField]
     GameObject simpleAI;
+
+    [SerializeField]
+    GameObject intermediateAI;
+
 
     bool isLoading = true;
     bool isDropping = false;
@@ -261,11 +267,6 @@ public class GameController : MonoBehaviour {
         // is there a free cell in the selected column?
         bool foundFreeCell = false;
 
-
-
-        ///position "Sim_play" on position 
-        ///
-
         //plays the peice 
         endPosition = gameBoard.GamePlay(x, startPosition);
 
@@ -300,6 +301,7 @@ public class GameController : MonoBehaviour {
         }
 
         isDropping = false;
+        print("turn end");
         gameBoard.DebugBoard();
         yield return 0;
     }

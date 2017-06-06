@@ -22,7 +22,6 @@ public class SimpleAI : MonoBehaviour {
             return moves[Random.Range(0, moves.Count)];
 
         }
-
         //no moves are available
         return -1;
 
