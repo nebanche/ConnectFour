@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class AIToggle : MonoBehaviour {
 
-    
-  
     private void Update() {
         if(GameController.S.computerPlayer == true) {
             GetComponent<Image>().color = Color.red;

@@ -5,7 +5,7 @@ using C4_AI;
 
 public class AdvancedAI : SimpleAI {
 
-
+    /*
     override public int CalcuateMove() {
 
         //if first play in the middle 
@@ -46,8 +46,8 @@ public class AdvancedAI : SimpleAI {
                 }
             }
         
-        return bestScore; */
+        return bestScore; 
         return -1;
     }
-
+    */
 }
