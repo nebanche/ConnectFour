@@ -38,7 +38,7 @@ public class SimpleAI : MonoBehaviour {
     }
 
     //generalized to check winning move to use in advanced AI. 
-    int CheckWinningMove() {
+    public int CheckWinningMove() {
 
         for (int x = 0; x < GameController.numColumns; x++) { // check if current player can win next move
             if (GameController.S.canDrop(x) && GameController.S.isWinningMove(x, 1)) {

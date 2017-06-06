@@ -10,14 +10,11 @@ public class AdvancedAI : SimpleAI {
 
         //if first play in the middle 
 
+        long nodeCount;
 
         int[,] boardCopy = GameController.S.read_board();
 
         Position boardState = new Position (boardCopy);
-        
-
-        ///check if next move is the winning one 
-        
 
         return MinMaxStart(boardState);
     }
@@ -32,7 +29,24 @@ public class AdvancedAI : SimpleAI {
 
     int MinMax(ref Position boardState) {
 
-        ///minmax code will be here. 
+        ///check for tie? 
+        /*
+        int bestScore = - GameController.numColumns * GameController.numRows; // init the best possible score with a lower bound of score.
+
+        for (int x = 0; x < GameController.numColumns; x++) // compute the score of all possible next move and keep the best one
+            if (boardState.Can_sim(x)) {
+                Position deeperState = new Position (boardState);
+                // It's opponent turn in deeper position after current player plays x column. 
+                deeperState.SimPLayx);               
+                // If current player plays col x, his score will be the opposite of opponent's score after playing col 
+                int score = -MinMax(deeperState);
+                // keep track of best possible score so far.
+                if (score > bestScore) {
+                    bestScore = score;
+                }
+            }
+        
+        return bestScore; */
         return -1;
     }
 

@@ -265,6 +265,11 @@ public class GameController : MonoBehaviour {
 
         // is there a free cell in the selected column?
         bool foundFreeCell = false;
+
+        ////position, can play for each row 
+
+        ///position "Sim_play" on position 
+
         for (int i = numRows - 1; i >= 0; i--) {
             if (board[x, i] == 0) {
                 foundFreeCell = true;
