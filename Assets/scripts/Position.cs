@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace C4_AI {
-    //Position is a represention of the board state for an advanced AI. Structure from Russel/Norvig Textbook
+    //Position is a represention  and interface of the board state for an advanced AI. Structure from Russel/Norvig Textbook
     public class Position : MonoBehaviour {
 
         int[,] board;
@@ -13,7 +13,7 @@ namespace C4_AI {
         int moves; 
 
         public Position(Position boardState) {
-            board = boardState.read_board();
+            board = boardState.ReadBoard();
         }
 
         public Position(int[,] gameBoard) {
@@ -42,8 +42,8 @@ namespace C4_AI {
 
         }
 
-        //Simuates a play of a peice on col on the structure for board representation
-        void Play(int col) {
+        //Simuates a play of a peice on col on the structure for board representation. Does not play the peice to the front end 
+        public void SimPlay(int col) {
 
             ///need to check
             board[col, height[col] - 1] = 1 + moves % 2; //moves%2 adds 1 every other time 
@@ -66,7 +66,7 @@ namespace C4_AI {
         
         //returns immutable board
         //no  proper const methods in c#? Learning something everyday. 
-        int[,] read_board() {
+        public int[,] ReadBoard() {
             return board;
         }
 
@@ -215,7 +215,35 @@ namespace C4_AI {
             print(boardString);
         }
 
+
+        public int GetMoves() {
+            return moves;
+        }
     } //postition
+
+    //bummer, no tuple in C#
+    public class ScoreCol : MonoBehaviour {
+
+        //minmax score
+        int score;
+        //ingame column 
+        int col; 
+
+
+        public ScoreCol(int bestScore, int column) {
+            int score = bestScore;
+            int col = column;
+        }
+
+        public int GetScore() {
+            return score;
+        }
+
+        public int GetCol() {
+            return col;
+        }
+
+    }
 
 } //namespace
 
