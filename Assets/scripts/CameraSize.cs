@@ -1,19 +1,19 @@
 using UnityEngine;
 
-namespace ConnectFour
-{
-	public class CameraSize : MonoBehaviour 
-	{
+
+/// <summary>
+/// credit kevin.nl from connect four sprite tutorial
+/// </summary>
+namespace ConnectFour{
+	public class CameraSize : MonoBehaviour {
 		Camera cam;
 		
-		void Awake () 
-		{
+		void Awake (){
 			cam = GetComponent<Camera>();
 			cam.orthographic = true;
 		}
 		
-		void LateUpdate()
-		{
+		void LateUpdate(){
 			float maxY = (GameController.numRows) + 2;
 
 			cam.orthographicSize = maxY / 2f;
