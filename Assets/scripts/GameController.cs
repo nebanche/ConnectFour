@@ -39,7 +39,9 @@ public class GameController : MonoBehaviour {
     public string playerTwoText = "Yellow Wins!";
     public string drawText = "Draw!";
 
-    public GameObject btnPlayAgain;
+    [SerializeField]
+    private GameObject btnPlayAgain;
+
     bool btnPlayAgainTouching = false;
     Color btnPlayAgainOrigColor;
     Color btnPlayAgainHoverColor = new Color(255, 143, 4);
@@ -49,13 +51,6 @@ public class GameController : MonoBehaviour {
     // temporary gameobject, holds the piece at mouse position until the mouse has clicked
     GameObject gameObjectTurn;
 
-    /// <summary>
-    /// The Game field.
-    /// 0 = Empty
-    /// 1 = Blue
-    /// 2 = Red
-    /// </summary>
-    /// 
     Position gameBoard; 
 
     bool playerOneTurn = true;
@@ -251,9 +246,6 @@ public class GameController : MonoBehaviour {
         // round to a grid cell
         int x = Mathf.RoundToInt(startPosition.x);
         startPosition = new Vector3(x, startPosition.y, startPosition.z);
-
-        // is there a free cell in the selected column?
-        bool foundFreeCell = false;
 
         //plays the peice 
         endPosition = gameBoard.GamePlay(x, startPosition);

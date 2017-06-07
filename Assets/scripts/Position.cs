@@ -6,7 +6,17 @@ namespace C4_AI {
     //Position is a represention  and interface of the board state for an advanced AI. Structure from Russel/Norvig Textbook
     public class Position {
 
+        /// <summary>
+        /// The Game field.
+        /// 0 = Empty
+        /// 1 = Blue
+        /// 2 = Red
+        /// </summary>
+        /// 
+
         public int[,] board;
+
+        //stores the height of each row
         public int[] height;
 
         //count of move to determine what player is playing. 
@@ -239,7 +249,7 @@ namespace C4_AI {
         
     } //postition
 
-    //bummer, no tuple in C#
+    //bummer, no tuple in C# A tuple for Bestscores and Col. Used in AdvancedAI
     public class ScoreCol : MonoBehaviour {
 
         //minmax score
