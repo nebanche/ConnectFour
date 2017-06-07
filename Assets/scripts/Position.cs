@@ -85,7 +85,7 @@ namespace C4_AI {
         //plays a peice for the asethetics of the game. Returns a Vector3 of the col position for the gameboard. 
         //Edits the board and height
         public Vector3 GamePlay(int x, Vector3 startPosition) {
-            Vector3 endPosition = Vector3.zero;
+            Vector3 endPosition = new Vector3(-1, -1, -1);
 
             for (int i = GameController.numRows - 1; i >= 0; i--) {
                 if (board[x, i] == 0) {

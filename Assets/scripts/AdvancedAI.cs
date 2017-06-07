@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using C4_AI;
 
+
+
+//// not implemented in the final game, but left to show what I was working on for this assesment. 
 public class AdvancedAI : SimpleAI {
 
     long nodeCount;

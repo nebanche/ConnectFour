@@ -1,0 +1,261 @@
+Initialize engine version: 5.5.0f3 (38b4efef76f0)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: Intel(R) HD Graphics 5000 (ID=0xa26)
+    Vendor:   Intel
+    VRAM:     1792 MB
+    Driver:   10.18.14.4029
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\ConnectFour\connectfour_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\ConnectFour\connectfour_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\ConnectFour\connectfour_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\ConnectFour\connectfour_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\ConnectFour\connectfour_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\ConnectFour\connectfour_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\ConnectFour\connectfour_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\ConnectFour\connectfour_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\ConnectFour\connectfour_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\ConnectFour\connectfour_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.139 seconds
+Platform assembly: C:\ConnectFour\connectfour_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\ConnectFour\connectfour_Data\Managed\System.dll (this message is harmless)
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 2160x1440 59Hz; virtual: 2160x1440 at 0,0
+<RI> Initialized touch support.
+The referenced script on this Behaviour (Game Object 'CommandLineUI') is missing!
+ 
+(Filename:  Line: 1754)
+
+UnloadTime: 2.848396 ms
+we have hit initalization
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000000Col3:000000Col4:000000Col5:000000Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000000Col3:000000Col4:000000Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000000Col3:000000Col4:000002Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000000Col3:000001Col4:000002Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000000Col3:000021Col4:000002Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000001Col3:000021Col4:000002Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000001Col3:000021Col4:000022Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000011Col3:000021Col4:000022Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000000Col2:000211Col3:000021Col4:000022Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000000Col1:000001Col2:000211Col3:000021Col4:000022Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+we are making a copy of a position
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Winning move would be at
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000001Col2:000211Col3:000021Col4:000022Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:000211Col3:000021Col4:000022Col5:000001Col6:000000
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+we are making a copy of a position
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:000211Col3:000021Col4:000022Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:000211Col3:000121Col4:000022Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+we are making a copy of a position
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:000211Col3:002121Col4:000022Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:000211Col3:002121Col4:000122Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+we are making a copy of a position
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Winning move would be at
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:000211Col3:002121Col4:002122Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:001211Col3:002121Col4:002122Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+we are making a copy of a position
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Winning move would be at
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+choice would let other player win: 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+new choice:2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000011Col2:021211Col3:002121Col4:002122Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:000111Col2:021211Col3:002121Col4:002122Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+we are making a copy of a position
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+False
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+turn end
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Col0:000002Col1:002111Col2:021211Col3:002121Col4:002122Col5:000001Col6:000002
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 13e0 -> priority: 1 

@@ -142,8 +142,11 @@ public class GameController : MonoBehaviour {
 
         if (!playerOneTurn && computerPlayer) {
             //computer thinking code goes here 
-            if (simpleAI) {
+            if (simpleOn) {
                 int choice = simpleAI.GetComponent<SimpleAI>().CalcuateMove(gameBoard);
+                spawnPos = new Vector3(choice, 0, 0);
+            } else {
+                int choice = intermediateAI.GetComponent<SimpleAI>().CalcuateMove(gameBoard);
                 spawnPos = new Vector3(choice, 0, 0);
             }
         }
@@ -236,21 +239,6 @@ public class GameController : MonoBehaviour {
         }
     }
 
-    /*
-    //checks if a peice is dropable in this row
-    public bool canDrop(int col) {
-
-        for (int i = numRows - 1; i >= 0; i--) {
-            if (board[col, i] == 0) {
-                return true;
-            }
-        }
-
-        return false;
-
-    }*/
-
-
     /// This method  is a cocourtine and searches for a empty cell and lets 
     /// the object fall down into this cell
     /// prevents the player from dropping into the middle colmn
@@ -270,7 +258,7 @@ public class GameController : MonoBehaviour {
         //plays the peice 
         endPosition = gameBoard.GamePlay(x, startPosition);
 
-        if (endPosition != Vector3.zero) {
+        if (endPosition != new Vector3(-1,-1,-1) ){
             // Instantiate a new Piece, disable the temporary floating piece
             GameObject g = Instantiate(gObject) as GameObject;
             gameObjectTurn.GetComponent<Renderer>().enabled = false;
